@@ -1,0 +1,92 @@
+/*************************** Header  *****************************/
+.header_wrap {
+    border: 1px solid burlywood;
+    padding: 15px 0;
+    background-color: #8d99ae;
+    color: white
+}
+
+.header_img {
+    width: 50px;
+}
+
+.links_wrap {
+    margin-top: 7px;
+    text-align: center;
+}
+
+.header_link {
+    padding: 5px;
+    margin: 0 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.header_link:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ebebeb;
+}
+
+.icons_wrap {
+    text-align: right;
+}
+
+.header_icon {
+    font-size: 22px;
+    margin: 5px;
+}
+
+.header_icon:hover,
+.dropdown_wrap:hover {
+    cursor: pointer;
+}
+
+.dropdown_wrap {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    display: none;
+    font-size: 34px;
+}
+
+/*************************** Media Queries  *****************************/
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and down) */
+@media (max-width: 1200px) {
+
+}
+
+/* Large devices (desktops, 992px and down) */
+@media (max-width: 992px) {
+    .links_wrap, .icons_wrap {
+        display: none;
+    }
+
+    .dropdown_wrap {
+        display: block;
+    }
+
+    .drop {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
+
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media (max-width: 576px) {
+
+}
