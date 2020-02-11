@@ -28,7 +28,7 @@ export default class landing extends Component {
                             in veniam mollit eiusmod nulla adipisicing incididunt.
                         </p>
                         <div className={`${styles.land_button_wrap}`}>
-                            <button className={`${styles.left_land_button}`}>View Local Map</button>
+                            <button className={`${styles.left_land_button}`}>View Map</button>
                             {!this.state.login ? <button>Login</button> : <button>Sign Up</button>}
                         </div>
                         
