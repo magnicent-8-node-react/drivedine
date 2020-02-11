@@ -3,22 +3,27 @@
     border: 1px solid burlywood;
     padding: 15px 0;
     background-color: #8d99ae;
-    color: white
+    color: white;
+    z-index: 2;
 }
 
 .header_img {
     width: 50px;
+    user-select: none;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
 }
 
 .links_wrap {
     margin-top: 7px;
     text-align: center;
+    font-size: 16px;
 }
 
 .header_link {
     padding: 5px;
     margin: 0 10px;
-    font-size: 16px;
     color: white;
 }
 
@@ -50,6 +55,12 @@
     font-size: 34px;
 }
 
+/*************************** Landing *****************************/
+.landing_img {
+    width: 200px;
+    margin-top: 100px;
+}
+
 /*************************** Media Queries  *****************************/
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
@@ -63,6 +74,11 @@
 
 /* Large devices (desktops, 992px and down) */
 @media (max-width: 992px) {
+    .links_wrap {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
     .links_wrap, .icons_wrap {
         display: none;
     }
@@ -75,10 +91,6 @@
         display: flex;
         flex-direction: column;
     }
-
-
-
-
 }
 
 /* Medium devices (tablets, 768px and down) */
