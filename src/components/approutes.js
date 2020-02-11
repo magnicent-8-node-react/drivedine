@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 // Components
 import Home from './pages/home/home.js'
 import NavBar from './pages/navbar'
+import MapPage from './pages/map/map.js'
 
 class AppRoutes extends Component {
 
@@ -16,6 +17,7 @@ class AppRoutes extends Component {
       <Router>
         <Route path="/" component={NavBar}/>
         <Route exact path="/" component={Home}/>
+        <Route path="/products" component={MapPage}/>
       </Router>
     )
   }
