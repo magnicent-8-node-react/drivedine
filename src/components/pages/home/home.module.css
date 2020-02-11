@@ -58,6 +58,8 @@
 /*************************** Landing *****************************/
 .landing_section {
     background-color: #6f59ce;
+    position: relative;
+    padding-bottom: 50px;
 }
 
 .phone_section {
@@ -102,6 +104,13 @@
 
 .text_wrap button:hover {
     background-color: grey;
+}
+
+.wave_img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
 }
 
 /*************************** Media Queries  *****************************/
@@ -160,9 +169,9 @@
 
 /*************************** Temporary Styles *****************************/
 .test_b {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .test_bg {
-    background-color: #e9e9e9;
+    /* background-color: #e9e9e9; */
 }
