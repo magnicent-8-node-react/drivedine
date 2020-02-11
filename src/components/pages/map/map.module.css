@@ -1,0 +1,40 @@
+/*************************** Map Page *****************************/
+.i_frame {
+    width: 600px;
+    height: 600px;
+}
+
+/*************************** Media Queries  *****************************/
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and down) */
+@media (max-width: 1200px) {
+
+}
+
+/* Large devices (desktops, 992px and down) */
+@media (max-width: 992px) {
+
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media (max-width: 576px) {
+
+}
+
+/*************************** Temporary Styles *****************************/
+.test_b {
+    border: 1px solid black;
+}
+
+.test_bg {
+    background-color: #e9e9e9;
+}
