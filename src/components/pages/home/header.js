@@ -33,18 +33,18 @@ export default class header extends Component {
         return (
             <div className={`d-flex flex-direction-row flex-wrap ${styles.header_wrap}`}>
 
-                <div className={'col-md-3 col-sm-12'}>
+                <div className={'col-md-3 col-3'}>
                     <img src={logo} alt="Logo" className={styles.header_img}/>
                 </div>
 
-                <div className={`col-md-6 col-sm-12 ${this.state.linkStyle}`}>
+                <div className={`col-md-6 col-6 ${this.state.linkStyle}`}>
                     <Link className={styles.header_link} to="/home">Home</Link>
-                    <Link className={styles.header_link} to="/home">Product</Link>
-                    <Link className={styles.header_link} to="/home">Features</Link>
-                    <Link className={styles.header_link} to="/home">Pricing</Link>
+                    <Link className={styles.header_link} to="/products">Product</Link>
+                    <Link className={styles.header_link} to="/features">Features</Link>
+                    <Link className={styles.header_link} to="/pricing">Pricing</Link>
                 </div>
 
-                <div className={`col-md-3 col-sm-12 ${styles.icons_wrap}`}>
+                <div className={`col-md-3 col-3 ${styles.icons_wrap}`}>
                     <FaTwitter className={styles.header_icon}/>
                     <FaFacebook className={styles.header_icon}/>
                     <FaInstagram className={styles.header_icon}/>
