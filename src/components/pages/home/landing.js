@@ -7,6 +7,9 @@ import phone from '../../../display.png'
 // CSS
 import styles from './home.module.css'
 
+// Images
+import waves from '../../../waves.png'
+
 export default class landing extends Component {
     state = {
         login: true
@@ -36,6 +39,7 @@ export default class landing extends Component {
                 <div className={`d-flex justify-content-center col-md-6 ${styles.phone_section} ${styles.test_b}`}>
                     <img alt="phone" className={styles.landing_img} src={phone}/>
                 </div>
+                <img src={waves} className={styles.wave_img} alt="waves"/>
             </div>
         )
     }
