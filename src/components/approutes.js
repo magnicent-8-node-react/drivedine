@@ -7,13 +7,15 @@ import { connect } from 'react-redux'
 
 // Components
 import Home from './pages/home/home.js'
+import NavBar from './pages/navbar'
 
 class AppRoutes extends Component {
 
   render() {
     return (
       <Router>
-        <Route to="/" component={Home}/>
+        <Route path="/" component={NavBar}/>
+        <Route exact path="/" component={Home}/>
       </Router>
     )
   }
