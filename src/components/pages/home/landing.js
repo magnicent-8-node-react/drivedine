@@ -1,18 +1,23 @@
 // Native Imports
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
-// Display Phone
-import phone from '../../../display.png'
+// Redux
+import { connect } from 'react-redux'
+
+// Actions
+import { formToggle } from '../../../actions/form'
 
 // CSS
 import styles from './home.module.css'
 
 // Images
 import waves from '../../../waves.png'
+import phone from '../../../display.png'
 
-export default class landing extends Component {
+class Landing extends Component {
     state = {
-        login: true
+        login: true // Temporary due to no Auth
     }
 
     render() {
@@ -28,8 +33,11 @@ export default class landing extends Component {
                             in veniam mollit eiusmod nulla adipisicing incididunt.
                         </p>
                         <div className={`${styles.land_button_wrap}`}>
-                            <button className={`${styles.left_land_button}`}>View Local Map</button>
-                            {!this.state.login ? <button>Login</button> : <button>Sign Up</button>}
+                            <Link to="products">
+                                <button onClick={this.toggle} className={`${styles.left_land_button} btn btn-light`}>Local Map</button>
+                            </Link>
+                            {this.state.login ? <button className="btn btn-light" onClick={this.props.formToggle}>Get Started</button> 
+                            : <button className="btn btn-light" onClick={this.props.formToggle}>Sign Up</button>}
                         </div>
                         
 
@@ -44,3 +52,9 @@ export default class landing extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => ({
+    form: state.form
+})
+
+export default connect(mapStateToProps, {formToggle})(Landing)
