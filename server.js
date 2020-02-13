@@ -2,9 +2,13 @@ const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const connectDB = require('./config/db')
 
 // Load Env Variables
 dotenv.config({ path: './config/config.env' });
+
+// Connect to Database
+connectDB();
 
 const app = express();
 
@@ -14,7 +18,8 @@ app.use(express.json());
 // Enable cors
 app.use(cors());
 
-app.get('/', (req, res) => res.send('Hello'))
+// Routes
+app.use('/api', require('./routes/trucks'));
 
 const PORT = process.env.PORT || 5000;
 
