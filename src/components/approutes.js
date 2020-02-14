@@ -12,6 +12,7 @@ import { getLocation } from '../actions/auth'
 import Home from './pages/home/home.js'
 import NavBar from './pages/navbar'
 import MapPage from './pages/map/map.js'
+import Form from './pages/form/form'
 
 class AppRoutes extends Component {
   componentDidMount() {
@@ -22,6 +23,7 @@ class AppRoutes extends Component {
     return (
       <Router>
         <Route path="/" component={NavBar}/>
+        <Route exact path="/" component={Form} />
         <Route exact path="/" component={Home}/>
         <Route exact path="/map" component={MapPage}/>
       </Router>
