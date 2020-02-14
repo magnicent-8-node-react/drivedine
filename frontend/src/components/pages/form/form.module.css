@@ -1,0 +1,112 @@
+/*************************** Form *****************************/
+.form_popup_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: rgba(63, 63, 63, 0.555);
+    
+    /* this aligns form to center */
+    /* margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0; */
+
+    left: 0;
+}
+
+.form_disable {
+    display: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.form_popup {
+    /* table-column doesn't show form for now for transition to work */
+    /* display: table-column; */
+    /* display: none; */
+    transition: .25s ease-in-out;
+}
+
+.form_exit_wrap {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 34px;
+    font-weight: 900;
+    color: white;
+    cursor: pointer;
+}
+
+.form_center_wrap {
+    position: fixed;
+    box-shadow: 1px 1px 30px 0px #292929;
+    padding: 30px;
+    border-radius: 12px;
+    background: #8c79da;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    height: 400px;
+    width: 400px;
+    margin-top: -70px;
+}
+
+.form_header {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.submit_button {
+    margin-right: 20px;
+}
+
+.form_exit_wrap {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.times_icon {
+    position: absolute;
+    top: -2px;
+    right: 0;
+}
+
+/*************************** Media Queries  *****************************/
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and down) */
+@media (max-width: 1200px) {
+
+}
+
+/* Large devices (desktops, 992px and down) */
+@media (max-width: 992px) {
+
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media (max-width: 576px) {
+
+}
+
+/*************************** Temporary Styles *****************************/
+.test_b {
+    border: 1px solid black;
+}
+
+.test_bg {
+    background-color: #e9e9e9;
+}

@@ -60,6 +60,7 @@
     background-color: #6f59ce;
     position: relative;
     padding-bottom: 50px;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .phone_section {
@@ -100,10 +101,6 @@
 
 .left_land_button {
     margin-right: 30px;
-}
-
-.text_wrap button:hover {
-    background-color: grey;
 }
 
 .wave_img {
@@ -168,10 +165,10 @@
 }
 
 /*************************** Temporary Styles *****************************/
-.test_b {
-    /* border: 1px solid black; */
+/* .test_b {
+    border: 1px solid black;
 }
 
 .test_bg {
-    /* background-color: #e9e9e9; */
-}
+    background-color: #e9e9e9;
+} */

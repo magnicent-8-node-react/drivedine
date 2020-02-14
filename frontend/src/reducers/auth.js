@@ -1,4 +1,4 @@
-import { USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT_SUCCESS, REGISTER_SUCCESS, REGISTER_FAIL } from '../actions/types'
+import { USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT_SUCCESS, REGISTER_SUCCESS, REGISTER_FAIL, LOCATION_UPDATE } from '../actions/types'
 
 const initialState = {
     token: localStorage.getItem('token'),
@@ -6,6 +6,10 @@ const initialState = {
     isLoading: false,
     user: null,
     form: false,
+    location: {
+        lat: 21.4,
+        long: 202.2
+    },
 }
 
 export default function(state=initialState, action){
@@ -24,7 +28,6 @@ export default function(state=initialState, action){
             }
         case LOGIN_SUCCESS:
             localStorage.setItem('token', action.payload.token);
-            // console.log('Logged-in user: ' + action.payload.groups[0].name)
             return {
                 ...state,
                 ...action.payload,
@@ -52,6 +55,15 @@ export default function(state=initialState, action){
                 isLoading: false,
                 group: null,
                 authLevel: null,
+            }
+        case LOCATION_UPDATE:
+            let { latitude, longitude } = action.payload;
+            return {
+                ...state,
+                location: {
+                    lat: latitude,
+                    long: longitude,
+                }
             }
         default:
             return state;
