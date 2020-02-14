@@ -30,20 +30,6 @@ class Map extends Component {
         });
     }
 
-    // componentWillReceiveProps() {
-        
-    //     // let { lat, long } = this.props.auth.location
-
-    //     console.log('rendering map');
-    //     console.log(this.props);
-    //     // const map = new mapboxgl.Map({
-    //     //     container: this.mapContainer,
-    //     //     style: 'mapbox://styles/mapbox/streets-v11',
-    //     //     center: [long, lat],
-    //     //     zoom: 14
-    //     // });
-    // }
-
     render() {
         return (
             <div className={`d-flex justify-content-center ${styles.map_wrap}`}>
