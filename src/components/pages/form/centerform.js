@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 // Actions
-import { formToggle, formTypeToggle } from '../../../actions/form'
+import { formToggle, formTypeToggle, scrollType } from '../../../actions/form'
 
 // React Icons
 import { FaTimes } from 'react-icons/fa'
@@ -43,11 +43,16 @@ class CenterForm extends Component {
         this.setState({[name]: value})
     }
 
+    formToggle = () => {
+        this.props.formToggle();
+        scrollType(this.props.form.formActive);
+    }
+
     render() {
         let { formType } = this.props.form;
         return (
             <form onSubmit={this.formSubmit} className={`${styles.form_center_wrap}`}>
-                <div onClick={this.props.formToggle} className={`${styles.form_exit_wrap}`}>
+                <div onClick={this.formToggle} className={`${styles.form_exit_wrap}`}>
                     <FaTimes className={`${styles.times_icon}`}/>
                 </div>
                 <div className={styles.form_header}>

@@ -15,7 +15,6 @@
     left: 0;
     right: 0; */
 
-    top: 0;
     left: 0;
 }
 
@@ -42,6 +41,7 @@
 }
 
 .form_center_wrap {
+    position: fixed;
     box-shadow: 1px 1px 30px 0px #292929;
     padding: 30px;
     border-radius: 12px;
@@ -51,6 +51,7 @@
     font-weight: 600;
     height: 400px;
     width: 400px;
+    margin-top: -70px;
 }
 
 .form_header {
@@ -59,12 +60,20 @@
     margin-bottom: 10px;
 }
 
-/* .checkbox_wrap {
-    margin-bottom: 10px;
-} */
-
 .submit_button {
     margin-right: 20px;
+}
+
+.form_exit_wrap {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.times_icon {
+    position: absolute;
+    top: -2px;
+    right: 0;
 }
 
 /*************************** Media Queries  *****************************/
@@ -80,17 +89,7 @@
 
 /* Large devices (desktops, 992px and down) */
 @media (max-width: 992px) {
-    .form_exit_wrap {
-        position: relative;
-        top: 0;
-        right: 0;
-    }
 
-    .times_icon {
-        position: absolute;
-        top: -2px;
-        right: 0;
-    }
 }
 
 /* Medium devices (tablets, 768px and down) */
