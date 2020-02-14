@@ -33,7 +33,7 @@ class Landing extends Component {
                             in veniam mollit eiusmod nulla adipisicing incididunt.
                         </p>
                         <div className={`${styles.land_button_wrap}`}>
-                            <Link to="products">
+                            <Link to="map">
                                 <button onClick={this.toggle} className={`${styles.left_land_button} btn btn-light`}>Local Map</button>
                             </Link>
                             {this.state.login ? <button className="btn btn-light" onClick={this.props.formToggle}>Get Started</button> 

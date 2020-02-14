@@ -24,9 +24,6 @@ export default class navbar extends Component {
             this.setState({linkStyle: styles.links_wrap})
         }
         this.setState({toggleDropDown: !this.state.toggleDropDown})
-
-
-        
     }
     
     render() {
@@ -39,7 +36,7 @@ export default class navbar extends Component {
 
                 <div className={`col-md-6 col-6 ${this.state.linkStyle}`}>
                     <Link className={styles.header_link} to="/">Home</Link>
-                    <Link className={styles.header_link} to="/products">Product</Link>
+                    <Link className={styles.header_link} to="/map">Map</Link>
                     <Link className={styles.header_link} to="/features">Features</Link>
                     <Link className={styles.header_link} to="/pricing">Pricing</Link>
                 </div>
