@@ -13,3 +13,12 @@ export const formTypeToggle = () => (dispatch) => {
         type: FORM_TYPE_TOGGLE,
     })
 }
+
+export const scrollType = (formActive) => {
+    let body = document.getElementsByTagName('body')[0];
+    if(formActive){
+        body.style.overflow = 'initial';
+    } else {
+        body.style.overflow = 'hidden';
+    }
+}
