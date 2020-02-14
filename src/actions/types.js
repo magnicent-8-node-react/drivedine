@@ -11,3 +11,6 @@ export const REGISTER_FAIL = 'REGISTER_FAIL';
 // FORM
 export const FORM_TOGGLE = 'FORM_TOGGLE';
 export const FORM_TYPE_TOGGLE = 'FORM_TYPE_TOGGLE';
+
+// Location
+export const LOCATION_UPDATE = 'LOCATION_UPDATE';
