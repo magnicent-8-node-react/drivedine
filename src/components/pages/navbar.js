@@ -31,7 +31,9 @@ export default class navbar extends Component {
             <div className={`d-flex flex-direction-row flex-wrap ${styles.header_wrap}`}>
 
                 <div className={'col-md-3 col-3'}>
-                    <img src={logo} alt="Logo" className={styles.header_img}/>
+                    <Link to="/">
+                        <img src={logo} alt="Logo" className={styles.header_img}/>
+                    </Link>
                 </div>
 
                 <div className={`col-md-6 col-6 ${this.state.linkStyle}`}>
