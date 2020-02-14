@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 // Actions
-import { formToggle } from '../../../actions/form'
+import { formToggle, scrollType } from '../../../actions/form'
 
 // CSS
 import styles from './home.module.css'
@@ -18,6 +18,11 @@ import phone from '../../../display.png'
 class Landing extends Component {
     state = {
         login: true // Temporary due to no Auth
+    }
+
+    formToggle = () => {
+        this.props.formToggle();
+        scrollType(this.props.form.formActive);
     }
 
     render() {
@@ -36,8 +41,8 @@ class Landing extends Component {
                             <Link to="map">
                                 <button onClick={this.toggle} className={`${styles.left_land_button} btn btn-light`}>Local Map</button>
                             </Link>
-                            {this.state.login ? <button className="btn btn-light" onClick={this.props.formToggle}>Get Started</button> 
-                            : <button className="btn btn-light" onClick={this.props.formToggle}>Sign Up</button>}
+                            {this.state.login ? <button className="btn btn-light" onClick={this.formToggle}>Get Started</button> 
+                            : <button className="btn btn-light" onClick={this.formToggle}>Sign Up</button>}
                         </div>
                         
 
