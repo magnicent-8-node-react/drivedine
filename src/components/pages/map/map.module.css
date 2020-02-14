@@ -4,6 +4,21 @@
     height: 600px;
 }
 
+.map_wrap {
+    position: relative;
+    height: 400px;
+    width: 80%;
+    margin: auto;
+}
+
+.map_container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
 /*************************** Media Queries  *****************************/
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
