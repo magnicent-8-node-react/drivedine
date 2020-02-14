@@ -9,6 +9,9 @@ const TruckSchema = new mongoose.Schema({
     //   trim: true,
     //   maxlength: [10, 'Truck ID must be less than 10 chars']
     // },
+    turckname: {
+      type: String,
+    },
     address: {
       type: String,
       required: [true, 'Please add an address']
