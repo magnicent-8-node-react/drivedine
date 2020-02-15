@@ -35,9 +35,7 @@ class Map extends Component {
 
         async function getTrucks() {
             const res = await fetch('https://drivedineapi.herokuapp.com/api');
-            const data = await res.json();
-            console.log(data);
-          
+            const data = await res.json();          
             const trucks = data.data.map(truck => {
               return {
                 type: 'Feature',
@@ -49,12 +47,11 @@ class Map extends Component {
                   ]
                 },
                 properties: {
-                  truckId: truck.truckId,
+                  truckName: truck.truckName,
                   icon: 'icon'
                 }
               };
             });
-            console.log(trucks);
             loadMap(trucks);
         }
 
@@ -83,7 +80,7 @@ class Map extends Component {
                     layout: {
                       'icon-image': '{icon}',
                       'icon-size': .8,
-                      'text-field': '{truckId}',
+                      'text-field': '{truckName}',
                       'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
                       'text-offset': [0, 0.9],
                       'text-anchor': 'top'
