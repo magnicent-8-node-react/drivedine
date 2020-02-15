@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const geocoder = require('../utils/geocoder');
 
 const TruckSchema = new mongoose.Schema({
-  truckId: {
+  truckName: {
     type: String,
-    required: [true, 'Please add a truck ID'],
+    required: [true, 'Please add a truck name'],
     unique: true,
-    trim: true,
-    maxlength: [10, 'Truck ID must be less than 10 chars']
+    trim: false,
+    maxlength: [10, 'Truck name is too Long']
   },
   address: {
     type: String,
