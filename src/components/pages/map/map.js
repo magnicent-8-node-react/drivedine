@@ -15,6 +15,7 @@ import styles from './map.module.css'
 
 // Test Image
 import icon from '../../../pointer.png'
+import icon2 from '../../../logo.png'
 
 // Set Mapbox Token
 mapboxgl.accessToken = 'pk.eyJ1IjoiZHJpdmVkaW5lMiIsImEiOiJjazZsYzRwdmUwZG1lM211OXNlb2JsYnRiIn0.ZDOFdh3cuDMQZt9FPnZ-jw';
@@ -31,6 +32,37 @@ class Map extends Component {
             center: [long, lat],
             zoom: 14
         });
+
+        let truckFeature = [{
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [long, lat]
+            },
+            properties: {
+              truckName: 'You',
+              icon: `icon`
+            }
+        },
+        {
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [long + .005, lat + .005]
+            },
+            properties: {
+                truckName: 'Truck',
+                icon: `icon`
+            }
+        },
+        // {
+        //     type: 'Feature',
+        //     geometry: {
+        //         type: 'Point',
+        //         coordinates: [long - .003, lat - .005]
+        //     }
+        // },
+        ]
 
         /* Commented Code Should Automate Points */
         // async function getTrucks() {
@@ -49,7 +81,7 @@ class Map extends Component {
         //         },
         //         properties: {
         //           truckId: truck.storeId,
-        //           icon: `${icon}`
+        //           icon: 'icon'
         //         }
         //       };
         //     });
@@ -80,52 +112,36 @@ class Map extends Component {
         //     });
         // }
 
-        map.on('load', function () {
-
-            map.loadImage(
-                icon,
-                function(error, image) {
+        map.on('load', () => {
+            map.loadImage( icon, (error, image) => {
                     if (error) throw error;
-                    map.addImage('icon', image);
-                    map.addSource('point', {
-                        'type': 'geojson',
-                        'data': {
-                            'type': 'FeatureCollection',
-                            'features': [{
-                                'type': 'Feature',
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [long, lat]
-                            }}]
-                    }}
-            )});
+                    map.addImage('icon', image);}
+            );
 
-        map.addLayer({
-            id: 'points',
-            type: 'symbol',
-            source: {
-                type: 'geojson',
-                data: {
-                type: 'FeatureCollection',
-                features: [{
-                    type: 'Feature',
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [long, lat]
+            map.loadImage( icon2, (error, image) => {
+                if (error) throw error;
+                map.addImage('icon2', image);}
+            );
+
+            map.addLayer({
+                id: 'points',
+                type: 'symbol',
+                source: {
+                    type: 'geojson',
+                    data: {
+                    type: 'FeatureCollection',
+                    features: truckFeature
                     }
-                }]
+                },
+                layout: {
+                    'icon-image': '{icon}',
+                    'icon-size': .8,
+                    'text-field': '{truckName}',
+                    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                    'text-offset': [0, 0.9],
+                    'text-anchor': 'top'
                 }
-            },
-            layout: {
-                'icon-image': `icon`,
-                'icon-size': 1.5,
-                // 'text-field': '{storeId}',
-                'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                'text-offset': [0, 0.9],
-                'text-anchor': 'top'
-            }
             });
-            
         });
     }
 
