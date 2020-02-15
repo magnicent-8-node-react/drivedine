@@ -1,8 +1,8 @@
 /*************************** Header *****************************/
 .header_wrap {
-    border: 1px solid burlywood;
+    /* border: 1px solid burlywood; */
     padding: 15px 0;
-    background-color: #8d99ae;
+    background-color: #4627cc;
     color: white;
     z-index: 2;
 }
@@ -18,7 +18,8 @@
 .links_wrap {
     margin-top: 7px;
     text-align: center;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .header_link {
@@ -126,6 +127,7 @@
     .links_wrap {
         margin-top: 10px;
         font-size: 20px;
+        font-weight: 500px;
     }
 
     .links_wrap, .icons_wrap {
