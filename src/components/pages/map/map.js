@@ -33,116 +33,65 @@ class Map extends Component {
             zoom: 14
         });
 
-        let truckFeature = [{
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [long, lat]
-            },
-            properties: {
-              truckName: 'You',
-              icon: `icon`
-            }
-        },
-        {
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [long + .005, lat + .005]
-            },
-            properties: {
-                truckName: 'Truck',
-                icon: `icon`
-            }
-        },
-        // {
-        //     type: 'Feature',
-        //     geometry: {
-        //         type: 'Point',
-        //         coordinates: [long - .003, lat - .005]
-        //     }
-        // },
-        ]
-
-        /* Commented Code Should Automate Points */
-        // async function getTrucks() {
-        //     const res = await fetch('https://drivedineapi.herokuapp.com/api');
-        //     const data = await res.json();
+        async function getTrucks() {
+            const res = await fetch('https://drivedineapi.herokuapp.com/api');
+            const data = await res.json();
+            console.log(data);
           
-        //     const trucks = data.data.map(truck => {
-        //       return {
-        //         type: 'Feature',
-        //         geometry: {
-        //           type: 'Point',
-        //           coordinates: [
-        //             truck.location.coordinates[0],
-        //             truck.location.coordinates[1]
-        //           ]
-        //         },
-        //         properties: {
-        //           truckId: truck.storeId,
-        //           icon: 'icon'
-        //         }
-        //       };
-        //     });
-        //     loadMap(trucks);
-        // }
+            const trucks = data.data.map(truck => {
+              return {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [
+                    truck.location.coordinates[0],
+                    truck.location.coordinates[1]
+                  ]
+                },
+                properties: {
+                  truckId: truck.truckId,
+                  icon: 'icon'
+                }
+              };
+            });
+            console.log(trucks);
+            loadMap(trucks);
+        }
 
-        // function loadMap(trucks) {
-        //     map.on('load', function() {
-        //       map.addLayer({
-        //         id: 'points',
-        //         type: 'symbol',
-        //         source: {
-        //           type: 'geojson',
-        //           data: {
-        //             type: 'FeatureCollection',
-        //             features: trucks
-        //           }
-        //         },
-        //         layout: {
-        //           'icon-image': '{icon}',
-        //           'icon-size': 1.5,
-        //           'text-field': '{storeId}',
-        //           'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-        //           'text-offset': [0, 0.9],
-        //           'text-anchor': 'top'
-        //         }
-        //       });
-        //     });
-        // }
-
-        map.on('load', () => {
-            map.loadImage( icon, (error, image) => {
+        function loadMap(trucks) {
+            map.on('load', function() {
+                // Load Images
+                map.loadImage( icon, (error, image) => {
                     if (error) throw error;
                     map.addImage('icon', image);}
-            );
+                );
+                map.loadImage( icon2, (error, image) => {
+                    if (error) throw error;
+                    map.addImage('icon2', image);}
+                );
 
-            map.loadImage( icon2, (error, image) => {
-                if (error) throw error;
-                map.addImage('icon2', image);}
-            );
-
-            map.addLayer({
-                id: 'points',
-                type: 'symbol',
-                source: {
-                    type: 'geojson',
-                    data: {
-                    type: 'FeatureCollection',
-                    features: truckFeature
+                map.addLayer({
+                    id: 'points',
+                    type: 'symbol',
+                    source: {
+                      type: 'geojson',
+                      data: {
+                        type: 'FeatureCollection',
+                        features: trucks
+                      }
+                    },
+                    layout: {
+                      'icon-image': '{icon}',
+                      'icon-size': .8,
+                      'text-field': '{truckId}',
+                      'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                      'text-offset': [0, 0.9],
+                      'text-anchor': 'top'
                     }
-                },
-                layout: {
-                    'icon-image': '{icon}',
-                    'icon-size': .8,
-                    'text-field': '{truckName}',
-                    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                    'text-offset': [0, 0.9],
-                    'text-anchor': 'top'
-                }
+                });
             });
-        });
+        }
+        getTrucks();
     }
 
     render() {
