@@ -12,7 +12,6 @@ import { formToggle, scrollType } from '../../../actions/form'
 import styles from './home.module.css'
 
 // Images
-import waves from '../../../waves.png'
 import phone from '../../../display.png'
 
 class Landing extends Component {
@@ -52,7 +51,7 @@ class Landing extends Component {
                 <div className={`d-flex justify-content-center col-md-6 ${styles.phone_section} ${styles.test_b}`}>
                     <img alt="phone" className={styles.landing_img} src={phone}/>
                 </div>
-                <img src={waves} className={styles.wave_img} alt="waves"/>
+                <div className={styles.wave_img}></div>
             </div>
         )
     }
