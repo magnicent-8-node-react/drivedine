@@ -38,34 +38,31 @@ export const getTrucks = async function (map) {
 }
 
 export const insertTruckPointers = function (map, trucks) {
-    map.on('load', function () {
-
-        // Load Images
-        map.loadImage(icon, (error, image) => {
-            if (error) throw error;
-            map.addImage('icon', image);
-        });
-
-        // Load Pointers
-        map.addLayer({
-            id: 'points',
-            type: 'symbol',
-            source: {
-                type: 'geojson',
-                data: {
-                    type: 'FeatureCollection',
-                    features: trucks
-                }
-            },
-            layout: {
-                'icon-image': '{icon}',
-                'icon-size': .8,
-                'text-field': '{truckName}',
-                'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                'text-offset': [0, 0.9],
-                'text-anchor': 'top'
+    // Load Images
+    map.loadImage(icon, (error, image) => {
+        if (error) throw error;
+        map.addImage('icon', image);
+    });
+    
+    // Load Pointers
+    map.addLayer({
+        id: 'points',
+        type: 'symbol',
+        source: {
+            type: 'geojson',
+            data: {
+                type: 'FeatureCollection',
+                features: trucks
             }
-        });
+        },
+        layout: {
+            'icon-image': '{icon}',
+            'icon-size': .8,
+            'text-field': '{truckName}',
+            'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+            'text-offset': [0, 0.9],
+            'text-anchor': 'top'
+        }
     });
 }
 
