@@ -16,6 +16,7 @@
     right: 0; */
 
     left: 0;
+    top: 72px;
 }
 
 .form_disable {
@@ -52,6 +53,9 @@
     height: 400px;
     width: 400px;
     margin-top: -70px;
+    font-family: 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 .form_header {

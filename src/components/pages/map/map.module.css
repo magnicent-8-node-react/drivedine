@@ -19,6 +19,22 @@
     bottom: 0;
 }
 
+.reload_btn {
+    position: absolute;
+    height: 40px;
+    background-color: #4627cc;
+    border: 0;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    bottom: 0px;
+}
+
+.test_btn {
+    top: 40px;
+}
+
 /*************************** Media Queries  *****************************/
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
