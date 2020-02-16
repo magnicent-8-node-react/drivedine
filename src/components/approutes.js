@@ -2,37 +2,23 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-// Redux
-import { connect } from 'react-redux'
-
-// Actions
-import { getLocation } from '../actions/auth'
-
 // Components
 import Home from './pages/home/home.js'
 import NavBar from './pages/navbar'
 import MapPage from './pages/map/map.js'
-import Form from './pages/form/form'
+import Form from './pages/form/form.js'
+import Pricing from './pages/pricing/pricing.js'
 
-class AppRoutes extends Component {
-  componentDidMount() {
-    this.props.getLocation();
-  }
-
+export default class AppRoutes extends Component {
   render() {
     return (
       <Router>
         <Route path="/" component={NavBar}/>
-        <Route exact path="/" component={Form} />
         <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={Form} />
         <Route exact path="/map" component={MapPage}/>
+        <Route path="/pricing" component={Pricing}/>
       </Router>
     )
   }
 }
-
-const mapStateToProps = state => ({
-  auth: state.auth
-})
-
-export default connect(mapStateToProps, { getLocation })(AppRoutes)
