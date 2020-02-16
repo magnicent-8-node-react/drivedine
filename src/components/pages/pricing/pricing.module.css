@@ -1,0 +1,86 @@
+/*************************** Pricing *****************************/
+div.card_container {
+    margin: 0 5%;
+}
+
+.pricing_text_wrap h1 {
+    font-weight: 400;
+    font-family: 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
+    'Helvetica Neue', sans-serif;
+}
+
+.pricing_text_wrap p {
+    margin: 0 10%;
+}
+
+button.free_btn {
+    color: black;
+    border-color: #ffa25c;
+}
+
+button.free_btn:hover {
+    border-color: #ffe9d9;
+}
+
+button.price_btn {
+    background-color: #4627cc;
+    border-color: #4627cc;
+    color: #d8d8d8;
+    font-weight: 400;
+}
+
+button.price_btn:hover {
+    background-color: #3e1eca;
+    border-color: #3e1eca;
+    color: white;
+    font-weight: 500;
+}
+
+button.price_btn:focus {
+    background-color: #4b31bd;
+    color: white;
+}
+
+.pricing_header {
+    color: #ffa25c;
+} 
+
+/*************************** Media Queries  *****************************/
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and down) */
+@media (max-width: 1200px) {
+
+}
+
+/* Large devices (desktops, 992px and down) */
+@media (max-width: 992px) {
+    div.card_container {
+        margin: 0;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    div.card_container {
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0;
+    }
+
+    div.cards_holder {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media (max-width: 576px) {
+
+}
