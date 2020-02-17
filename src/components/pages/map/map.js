@@ -49,11 +49,21 @@ class Map extends Component {
     updatePointer(this.state.map, long, lat);
   }
 
+  filter = (input) => {
+    let {value, name} = input.target;
+    this.setState({[name]: value});
+    
+  }
+
   render() {
     return (
         <div className={`d-flex justify-content-center ${styles.map_wrap}`}>
-            <div ref={el => this.mapContainer = el } className={`mapContainer ${styles.map_container}`}/>
-            <button className={`${styles.reload_btn}`} onClick={this.reloadLocation}>Refresh Location</button>
+          <div ref={el => this.mapContainer = el } className={`mapContainer ${styles.map_container}`}/>
+
+          <button className={`${styles.reload_btn}`} onClick={this.reloadLocation}>Refresh Location</button>
+          <div className={styles.filter_wrap}>
+            <input onChange={this.filter} id="filter-input" type="text" name="filter" placeholder="Filter by name"/>
+          </div>        
         </div>
     )
   }

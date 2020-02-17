@@ -32,7 +32,8 @@ export const getTrucks = async function (map) {
             },
             properties: {
                 truckName: truck.truckName,
-                icon: 'icon'
+                icon: 'icon',
+                truck: 'none',
             }
         };
     });
@@ -70,7 +71,8 @@ export const insertTruckPointers = function (map, trucks, layerId) {
             'text-field': '{truckName}',
             'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
             'text-offset': [0, 0.9],
-            'text-anchor': 'top'
+            'text-anchor': 'top',
+            'visibility': 'none'
         }
     });
 }
@@ -117,11 +119,28 @@ export const updatePointer = (map, long, lat) => {
         },
         properties: {
             truckName: 'You',
-            icon: 'icon2'
+            icon: 'icon2',
+            truck: 'visible',
         }
     };
 
     trucks.unshift(pointer);
 
-    map.getSource('trucks').setData({type: "FeatureCollection", features: trucks});    
+    // Prevents Error Where User Refreshes Before Map Loads
+    if(map.getSource('trucks')){
+        map.getSource('trucks').setData({type: "FeatureCollection", features: trucks});
+    } else {
+        console.log('Wait till map loads/ Map unable to load');
+    }
 }
+
+// export const filter = (map, value) => {
+//     value = value.trim().toLowerCase();
+//     layerIDs.forEach(function(layerID) {
+//       map.setLayoutProperty(
+//       layerID,
+//       'visibility',
+//       layerID.indexOf(value) > -1 ? 'visible' : 'none'
+//       );
+//     });
+// }
