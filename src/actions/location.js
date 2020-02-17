@@ -5,10 +5,14 @@ import { LOCATION_UPDATE } from '../actions/types'
 import mapboxgl from 'mapbox-gl'
 
 // Test Image
-import icon from '../pointer.png'
+import icon from '../pointerv2.png'
+import icon2 from '../upointerv2.png';
 
 // Set Mapbox Token
 mapboxgl.accessToken = 'pk.eyJ1IjoiZHJpdmVkaW5lMiIsImEiOiJjazZsYzRwdmUwZG1lM211OXNlb2JsYnRiIn0.ZDOFdh3cuDMQZt9FPnZ-jw';
+
+// Global Variables
+let trucks = [];
 
 export const getTrucks = async function (map) {
     // Fetches Pointers to Map Through All of Them Below
@@ -16,7 +20,7 @@ export const getTrucks = async function (map) {
     const data = await res.json();
 
     // Creates Pointer Data to Plot on Map  
-    const trucks = data.data.map(truck => {
+    trucks = data.data.map(truck => {
         return {
             type: 'Feature',
             geometry: {
@@ -33,31 +37,36 @@ export const getTrucks = async function (map) {
         };
     });
 
-    // Gets Data and Inserts to Map
-    insertTruckPointers(map, trucks);
-}
-
-export const insertTruckPointers = function (map, trucks) {
     // Load Images
     map.loadImage(icon, (error, image) => {
         if (error) throw error;
         map.addImage('icon', image);
     });
-    
+
+    map.loadImage(icon2, (error, image) => {
+        if (error) throw error;
+        map.addImage('icon2', image);
+    });
+
+    // Add data as source
+    map.addSource('trucks', { type: 'geojson', data: {
+        type: 'FeatureCollection',
+        features: trucks
+    }});
+
+    // Gets Data and Inserts to Map
+    insertTruckPointers(map, trucks, 'points');
+}
+
+export const insertTruckPointers = function (map, trucks, layerId) {
     // Load Pointers
     map.addLayer({
-        id: 'points',
+        id: layerId,
         type: 'symbol',
-        source: {
-            type: 'geojson',
-            data: {
-                type: 'FeatureCollection',
-                features: trucks
-            }
-        },
+        source: 'trucks',
         layout: {
             'icon-image': '{icon}',
-            'icon-size': .8,
+            'icon-size': .07,
             'text-field': '{truckName}',
             'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
             'text-offset': [0, 0.9],
@@ -94,4 +103,25 @@ export const userTracker = (map) => {
             trackUserLocation: true
         })
     );
+}
+
+export const updatePointer = (map, long, lat) => {
+    let pointer = {
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [
+                long,
+                lat
+            ]
+        },
+        properties: {
+            truckName: 'You',
+            icon: 'icon2'
+        }
+    };
+
+    trucks.unshift(pointer);
+
+    map.getSource('trucks').setData({type: "FeatureCollection", features: trucks});    
 }
