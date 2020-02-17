@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 // Actions
-import { getTrucks, getLocation, jumpTo } from '../../../actions/location'
+import { getTrucks, getLocation, jumpTo, updatePointer } from '../../../actions/location'
 
 // CSS
 import styles from './map.module.css'
@@ -16,7 +16,6 @@ import mapboxgl from 'mapbox-gl'
 // Set Mapbox Token
 mapboxgl.accessToken = 'pk.eyJ1IjoiZHJpdmVkaW5lMiIsImEiOiJjazZsYzRwdmUwZG1lM211OXNlb2JsYnRiIn0.ZDOFdh3cuDMQZt9FPnZ-jw';
 
-// Mapbox class
 class Map extends Component {
   componentDidMount () {
     this.props.getLocation();
@@ -35,6 +34,8 @@ class Map extends Component {
     
     // Sets map to Component State for Reference
     this.setState({map})
+
+    // Render map Data
     getTrucks(map);
 
     // Removes All Map Options
@@ -44,6 +45,8 @@ class Map extends Component {
   reloadLocation = () => {
     let { lat, long } = this.props.auth.location;
     jumpTo(this.state.map, long, lat);
+
+    updatePointer(this.state.map, long, lat);
   }
 
   render() {
